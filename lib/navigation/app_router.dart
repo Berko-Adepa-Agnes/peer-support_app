@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../screens/trending_screen.dart';
 import '../screens/saved_posts_screen.dart';
 import '../screens/history_screen.dart';
@@ -8,6 +9,7 @@ import '../screens/about_screen.dart';
 import '../screens/post_detail_screen.dart';
 import '../screens/user_profile_screen.dart';
 import '../screens/community_detail_screen.dart';
+import '../screens/support_community_screen.dart'; // 👈 New screen added
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -45,14 +47,18 @@ class AppRouter {
             communityId: args?['communityId'] ?? '',
           ),
         );
+      case '/support': // 👈 New route for Support Community Screen
+        return MaterialPageRoute(
+          builder: (_) => const SupportCommunityScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
             body: Center(
-              child: Text('Page not found: ${settings.name}'),
+              child: Text('Page not found: ${settings.name}'),
             ),
           ),
         );
     }
   }
-} 
+}
